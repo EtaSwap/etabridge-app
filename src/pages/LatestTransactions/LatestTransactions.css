@@ -1,0 +1,76 @@
+.stats {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.stats__wrapper {
+    display: flex;
+    padding: 0 1.8em;
+}
+
+.stats__header {
+    display: flex;
+    padding-bottom: 20px;
+}
+
+.stats__title {
+    font-size: 2rem;
+    color: var(--dark-green);
+    font-weight: 500;
+    padding: 0;
+    margin-left: 0;
+}
+
+.stats__menu {
+    list-style: none;
+    width: 170px;
+    flex: 0 0 170px;
+    margin: 0;
+    padding: calc(2rem + 20px) 0 0 0;
+}
+
+.stats__menu-item {
+    display: block;
+}
+
+.stats__menu-link {
+    padding: 5px 10px;
+    display: inline-block;
+    text-decoration: none;
+    font-size: 1rem;
+    outline: none;
+}
+
+.stats__menu-link.stats__menu-link--active {
+    color: var(--green);
+}
+
+.stats__chart {
+    flex: 0 0 calc(100% - 170px);
+}
+
+
+.stats__chart .ant-select {
+    margin-left: 10px;
+}
+
+@media screen and (max-width: 767px) {
+    .stats__wrapper {
+        flex-wrap: wrap;
+        padding: 0;
+    }
+
+    .stats__menu {
+        width: 100%;
+        flex: 0 0 100%;
+        padding-top: 0;
+        padding-bottom: 20px;
+        order: 2;
+    }
+
+    .stats__chart {
+        flex: 0 0 100%;
+        order: 1;
+    }
+}
