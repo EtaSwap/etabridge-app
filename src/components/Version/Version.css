@@ -15,5 +15,29 @@
 
 .version {
     color: var(--gray);
+}
 
+.builton {
+    position: fixed;
+    left: 10px;
+    bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    opacity: 0.7;
+    z-index: 3;
+}
+
+.builton__link {
+    display: inline-block;
+}
+
+.builton__logo {
+    width: 140px;
+}
+
+@media screen and (max-width: 767px) {
+    .builton {
+        display: none;
+    }
 }
