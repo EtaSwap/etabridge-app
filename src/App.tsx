@@ -25,7 +25,6 @@ import KabilaIcon from './assets/img/kabila-icon.svg';
 import MetamaskLogo from './assets/img/metamask-logo.svg';
 // @ts-ignore
 import MetamaskIcon from './assets/img/metamask-icon.svg';
-import { HashpackWallet } from './class/wallet/hashpack-wallet';
 import { BladeWallet } from './class/wallet/blade-wallet';
 import Social from './components/Social/Social';
 import { LoaderProvider } from "./components/Loader/LoaderContext";
@@ -62,13 +61,6 @@ function App() {
     const [evmWalletModalOpen, setEvmWalletModalOpen] = useState(false);
 
     const [wallets, setWallets] = useState<IWallets>({
-        hashpack: {
-            name: 'hashpack',
-            title: 'HashPack',
-            instance: new HashpackWallet(setWallet),
-            image: HashpackLogo,
-            icon: HashpackIcon,
-        },
         blade: {
             name: 'blade',
             title: 'Blade',
@@ -141,6 +133,16 @@ function App() {
                         extensionId: extension.id,
                     };
                 }
+                if (extension.id === 'gjagmgiddbbciopjhllkdnddhcglnemk') {
+                    walletConnectWallets.hashpack = {
+                        name: 'hashpack',
+                        title: extension.name || 'HashPack',
+                        instance: walletConnect,
+                        image: HashpackLogo,
+                        icon: HashpackIcon,
+                        extensionId: extension.id,
+                    };
+                }
             });
             walletConnectWallets.walletConnect = {
                 name: 'walletConnect',
@@ -150,8 +152,8 @@ function App() {
                 icon: WalletConnectIcon,
             };
             setWallets({
-                ...wallets,
                 ...walletConnectWallets,
+                ...wallets,
             });
             setEvmWallets(evmWallets);
         });
